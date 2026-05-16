@@ -1,0 +1,292 @@
+{
+  "run_id": "run-1778969430819",
+  "job_index": 2,
+  "params": {
+    "owner_user_id": "user-1774822953462",
+    "owner_username": "admin",
+    "owner_display_name": "Administrator",
+    "count": 3,
+    "archetype": "tool",
+    "market": "France",
+    "language": "fr",
+    "country": "FR",
+    "brief": "Assurez que votre site web offre une performance optimale pour le SEO et l'expérience utilisateur.",
+    "notes": "Analysez la vitesse de chargement et l'expérience utilisateur de votre site web selon les critères 'Core Web Vitals' de Google. Obtenez des recommandations précises.\nUn outil technique axé sur l'amélioration des performances web essentielles.",
+    "import_notes": "",
+    "growth_job_id": "",
+    "growth_slug": "",
+    "growth_kind": "",
+    "external_site_request_id": "",
+    "external_client_ref": "",
+    "external_source_label": "",
+    "dashboard_mode": "builder",
+    "network_site_format": "forum",
+    "network_primary_topic": "",
+    "network_primary_geo": "",
+    "network_domain_pool": "forum-de-jeu.shop",
+    "network_hosting_pool": "4vps:netoper | server_id=447345 | ip=5.253.59.18 | ssh_user=root | ssh_port=22",
+    "network_dns_strategy": "auto_pool_assign",
+    "network_domain_flow": "manual",
+    "network_content_strategy": "",
+    "network_model_concept": "google/gemini-2.5-flash-lite:nitro",
+    "network_model_seo": "google/gemini-2.5-flash-lite:nitro",
+    "network_model_build": "google/gemini-2.5-flash",
+    "network_model_qa": "anthropic/claude-haiku-4.5",
+    "network_model_growth": "google/gemini-2.5-flash-lite:nitro",
+    "network_blueprint_id": "",
+    "mode": "production",
+    "run_kind": "generated_batch",
+    "publish_target": "render",
+    "requested_publish_target": "render",
+    "allow_url_fallback": false,
+    "railway_project_id_override": "",
+    "railway_environment_id_override": "",
+    "railway_service_id_override": "",
+    "railway_service_name_override": "",
+    "github_repo_private": true,
+    "stage_models": {
+      "ideation": "google/gemini-2.5-flash-lite:nitro",
+      "spec": "google/gemini-2.5-flash",
+      "copy": "google/gemini-2.5-flash-lite:nitro",
+      "qa": "anthropic/claude-haiku-4.5",
+      "escalation": "anthropic/claude-sonnet-4.6"
+    },
+    "archetype_display": "mixed batch",
+    "archetype_mix": [
+      "calculator",
+      "tool",
+      "generator"
+    ],
+    "forced_design_theme": "neon-grid",
+    "forced_structure_preset": "tool-first-rail",
+    "site_idea_title": "Outil de Diagnostic de Performance Web 'Core Web Vitals'",
+    "site_idea_summary": "Analysez la vitesse de chargement et l'expérience utilisateur de votre site web selon les critères 'Core Web Vitals' de Google. Obtenez des recommandations précises."
+  },
+  "site_spec": {
+    "slug": "outil-de-diagnostic-de-performance-web-core-web-vitals-2",
+    "theme": {
+      "name": "Neon Grid",
+      "slug": "neon-grid",
+      "eyebrow": "Y2K Utility",
+      "family": "neon-grid",
+      "moods": [
+        "technical",
+        "cyber",
+        "fast",
+        "developer"
+      ],
+      "archetypes": [
+        "tool",
+        "calculator"
+      ],
+      "niches": [
+        "accessibility",
+        "developer tools",
+        "contrast checker",
+        "validator",
+        "qa"
+      ],
+      "keywords": [
+        "wcag",
+        "contrast",
+        "debug",
+        "developer",
+        "tester"
+      ],
+      "token_index": [
+        "accessibility",
+        "calculator",
+        "checker",
+        "contrast",
+        "cyber",
+        "debug",
+        "developer",
+        "fast",
+        "grid",
+        "neon",
+        "technical",
+        "tester",
+        "tool",
+        "tools",
+        "utility",
+        "validator",
+        "wcag",
+        "y2k"
+      ],
+      "font_embed": "https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@400;500;600;700&display=swap",
+      "display_font": "\"Orbitron\", sans-serif",
+      "body_font": "\"Rajdhani\", sans-serif",
+      "layout": "asymmetric",
+      "card_style": "neon",
+      "button_style": "glow",
+      "decor_style": "scanlines",
+      "hero_template": "0.88fr 1.12fr",
+      "seo_template": "1.18fr 0.82fr",
+      "feature_columns": 2,
+      "faq_columns": 3,
+      "hero_min_height": "78vh",
+      "panel_radius": "28px",
+      "card_radius": "26px",
+      "chip_radius": "999px",
+      "button_radius": "18px",
+      "outline_width": "1px",
+      "backdrop_blur": "16px",
+      "palette": {
+        "bg": "radial-gradient(circle at top, #0c1225 0%, #05070d 65%, #020308 100%)",
+        "surface": "rgba(7, 10, 18, 0.82)",
+        "surface_border": "rgba(0,255,159,0.28)",
+        "text": "#e9fffb",
+        "muted": "#8de9ff",
+        "accent": "#00ff9f",
+        "accent_alt": "#00d4ff",
+        "hero_glow": "rgba(0,255,159,0.22)",
+        "button_text": "#04150f",
+        "panel_alt": "rgba(255,255,255,0.03)",
+        "shadow": "0 0 48px rgba(0, 255, 159, 0.18)",
+        "input_fill": "rgba(255,255,255,0.03)"
+      }
+    },
+    "structure": {
+      "name": "Tool First Rail",
+      "slug": "tool-first-rail",
+      "hero_variant": "tool-first",
+      "proof_variant": "checklist",
+      "section_order": [
+        "proof",
+        "features",
+        "seo",
+        "faq"
+      ],
+      "feature_columns": 2,
+      "faq_columns": 2,
+      "family": "interaction-forward",
+      "moods": [
+        "direct",
+        "practical",
+        "fast"
+      ],
+      "archetypes": [
+        "tool",
+        "calculator",
+        "generator"
+      ],
+      "niches": [
+        "qr",
+        "validators",
+        "quick utilities",
+        "lead tools"
+      ],
+      "keywords": [
+        "interaction",
+        "fast",
+        "widget",
+        "action"
+      ],
+      "token_index": [
+        "action",
+        "calculator",
+        "checklist",
+        "direct",
+        "faq",
+        "fast",
+        "features",
+        "first",
+        "forward",
+        "generator",
+        "interaction",
+        "lead",
+        "practical",
+        "proof",
+        "quick",
+        "rail",
+        "seo",
+        "tool",
+        "tools",
+        "utilities",
+        "validators",
+        "widget"
+      ]
+    },
+    "render_direction": "worksheet-flow",
+    "render_direction_name": "Worksheet Flow",
+    "page_blueprint": "worksheet-cascade",
+    "page_blueprint_name": "Worksheet Cascade",
+    "title": "Outil de Diagnostic de Performance Web 'Core Web Vitals'",
+    "tagline": "Évaluez la Performance de Votre Site Web",
+    "description": "Analysez la vitesse de chargement et l",
+    "feature_prefix": "Bloc",
+    "action": "Lancer le diagnostic",
+    "cta_primary": "Analyser les Core Web Vitals",
+    "cta_secondary": "Consulter la FAQ",
+    "inputs": [
+      {
+        "id": "website_url",
+        "label": "URL à auditer",
+        "type": "text",
+        "placeholder": "https://exemple.fr/offre-eco",
+        "weight": 1.0
+      },
+      {
+        "id": "page_title",
+        "label": "Balise title actuelle",
+        "type": "text",
+        "placeholder": "Comparateur assurance auto jeune conducteur",
+        "weight": 1.0
+      },
+      {
+        "id": "focus_keyword",
+        "label": "Mot-clé principal",
+        "type": "text",
+        "placeholder": "assurance auto jeune conducteur",
+        "weight": 1.0
+      }
+    ],
+    "hero_metrics": [
+      {
+        "value": "Worksheet Flow",
+        "label": "Cadence"
+      },
+      {
+        "value": "3",
+        "label": "Entrées"
+      },
+      {
+        "value": "Diagnostic",
+        "label": "Sortie"
+      }
+    ],
+    "trust_labels": [
+      "Worksheet Flow",
+      "Analyser les Core Web Vitals",
+      "Diagnostic",
+      "Utilitaire immédiat",
+      "Structure SEO claire"
+    ],
+    "result_label": "Diagnostic",
+    "result_unit": "",
+    "runtime_mode": "seo_diagnostic",
+    "page_variant": "classic",
+    "faq_topic": "Outil de Diagnostic de Performance Web 'Core Web Vitals'",
+    "faq_entries": [
+      {
+        "question": "Pourquoi utiliser cet outil pour Outil de Diagnostic de Performance Web 'Core Web Vitals' ?",
+        "answer": "Il aide à cadrer le besoin rapidement et à orienter vers une prochaine action claire sur le marché France."
+      },
+      {
+        "question": "Le résultat est-il immédiat ?",
+        "answer": "Oui. L'interface est pensée pour une réponse rapide, lisible et exploitable dès la première interaction."
+      },
+      {
+        "question": "Cette page est-elle adaptée au SEO ?",
+        "answer": "Oui. La structure mélange utilité, clarté éditoriale et signaux de confiance sans surcharger l'expérience."
+      }
+    ],
+    "seo_paragraphs": [
+      "Cette page capte une intention forte autour de Outil de Diagnostic de Performance Web 'Core Web Vitals' et la transforme en action utile pour un public situé sur France.",
+      "Le format hero-first accélère la compréhension, réduit les frictions et améliore la lisibilité sur mobile comme sur desktop.",
+      "Le socle reste volontairement simple pour faciliter les tests, la QA continue et les variations SEO."
+    ],
+    "document_html": "<!DOCTYPE html>\n<html lang=\"fr\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Outil de Diagnostic de Performance Web &#x27;Core Web Vitals&#x27; | Évaluez la Performance de Votre Site Web</title>\n    <meta name=\"description\" content=\"Analysez la vitesse de chargement et l\">\n    <style>\n        @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Montserrat:wght@400;700&display=swap');\n        :root {\n            --primary-bg: #1a1a2e;\n            --secondary-bg: #16213e;\n            --accent-color: #e94560;\n            --text-color: #e0e0e0;\n            --border-color: #0f3460;\n            --input-bg: #0f3460;\n            --button-hover: #c9334d;\n            --glow-color: rgba(233, 69, 96, 0.4);\n        }\n        body {\n            font-family: 'Montserrat', sans-serif;\n            background-color: var(--primary-bg);\n            color: var(--text-color);\n            margin: 0;\n            padding: 0;\n            line-height: 1.6;\n            overflow-x: hidden;\n        }\n        .container {\n            max-width: 1200px;\n            margin: 0 auto;\n            padding: 20px;\n        }\n        header {\n            background-color: var(--secondary-bg);\n            padding: 40px 20px;\n            text-align: center;\n            border-bottom: 2px solid var(--border-color);\n            position: relative;\n            overflow: hidden;\n        }\n        header::before {\n            content: '';\n            position: absolute;\n            top: 0;\n            left: 0;\n            right: 0;\n            bottom: 0;\n            background: linear-gradient(45deg, rgba(23,33,62,0.8) 0%, rgba(26,26,46,0.8) 100%);\n            z-index: -1;\n        }\n        h1 {\n            font-family: 'Roboto Mono', monospace;\n            color: var(--accent-color);\n            font-size: 2.8em;\n            margin-bottom: 10px;\n            text-shadow: 0 0 10px var(--glow-color);\n        }\n        header p {\n            font-size: 1.2em;\n            max-width: 800px;\n            margin: 0 auto;\n            color: #ccc;\n        }\n        .section {\n            background-color: var(--secondary-bg);\n            margin: 30px 0;\n            padding: 40px;\n            border-radius: 8px;\n            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);\n            border: 1px solid var(--border-color);\n            position: relative;\n        }\n        .section h2 {\n            font-family: 'Roboto Mono', monospace;\n            color: var(--accent-color);\n            font-size: 2em;\n            margin-top: 0;\n            border-bottom: 2px solid var(--border-color);\n            padding-bottom: 15px;\n            margin-bottom: 30px;\n        }\n        .form-group {\n            margin-bottom: 20px;\n        }\n        label {\n            display: block;\n            margin-bottom: 8px;\n            font-weight: bold;\n            color: var(--text-color);\n        }\n        input[type=\"url\"], textarea {\n            width: calc(100% - 20px);\n            padding: 12px;\n            background-color: var(--input-bg);\n            border: 1px solid var(--border-color);\n            color: var(--text-color);\n            border-radius: 4px;\n            font-size: 1em;\n            box-sizing: border-box;\n        }\n        input[type=\"url\"]:focus, textarea:focus {\n            outline: none;\n            border-color: var(--accent-color);\n            box-shadow: 0 0 8px var(--glow-color);\n        }\n        button {\n            background-color: var(--accent-color);\n            color: white;\n            padding: 14px 25px;\n            border: none;\n            border-radius: 4px;\n            font-size: 1.1em;\n            cursor: pointer;\n            transition: background-color 0.3s ease, box-shadow 0.3s ease;\n            font-family: 'Montserrat', sans-serif;\n            font-weight: bold;\n            text-transform: uppercase;\n        }\n        button:hover {\n            background-color: var(--button-hover);\n            box-shadow: 0 0 15px var(--glow-color);\n        }\n        #tool-result {\n            margin-top: 30px;\n            padding: 20px;\n            background-color: var(--primary-bg);\n            border: 1px solid var(--border-color);\n            border-radius: 8px;\n            font-family: 'Roboto Mono', monospace;\n            white-space: pre-wrap;\n            word-wrap: break-word;\n            min-height: 150px;\n            display: flex;\n            align-items: center;\n            justify-content: center;\n            text-align: center;\n            font-size: 1.1em;\n            color: #a0a0a0;\n        }\n        .result-title {\n            color: var(--accent-color);\n            margin-bottom: 15px;\n            font-size: 1.4em;\n            text-shadow: 0 0 5px var(--glow-color);\n        }\n        .result-item {\n            margin-bottom: 10px;\n        }\n        .result-item strong {\n            color: var(--accent-color);\n        }\n        .seo-section {\n            background-color: var(--primary-bg);\n            padding: 40px;\n            margin-top: 30px;\n            border-top: 2px solid var(--border-color);\n            text-align: center;\n        }\n        .seo-section h3 {\n            font-family: 'Roboto Mono', monospace;\n            color: var(--accent-color);\n            font-size: 1.8em;\n            margin-bottom: 20px;\n        }\n        .seo-section p {\n            max-width: 900px;\n            margin: 0 auto 20px auto;\n            color: #ccc;\n        }\n        .seo-section ul {\n            list-style: none;\n            padding: 0;\n            display: flex;\n            flex-wrap: wrap;\n            justify-content: center;\n            gap: 15px;\n            max-width: 900px;\n            margin: 20px auto 0 auto;\n        }\n        .seo-section li {\n            background-color: var(--secondary-bg);\n            border: 1px solid var(--border-color);\n            padding: 10px 20px;\n            border-radius: 20px;\n            font-size: 0.9em;\n            color: var(--text-color);\n            transition: background-color 0.3s ease;\n        }\n        .seo-section li:hover {\n            background-color: var(--input-bg);\n        }\n        footer {\n            text-align: center;\n            padding: 30px;\n            margin-top: 50px;\n            background-color: var(--secondary-bg);\n            border-top: 1px solid var(--border-color);\n            color: #a0a0a0;\n            font-size: 0.9em;\n        }\n        @media (max-width: 768px) {\n            h1 {\n                font-size: 2em;\n            }\n            header p {\n                font-size: 1em;\n            }\n            .section {\n                padding: 25px;\n                margin: 20px 0;\n            }\n            .section h2 {\n                font-size: 1.6em;\n            }\n            button {\n                width: 100%;\n                padding: 12px;\n            }\n            .seo-section ul {\n                flex-direction: column;\n                align-items: center;\n            }\n        }\n    </style>\n    <meta name=\"robots\" content=\"index, follow\">\n    <link rel=\"canonical\" href=\"https://outil-de-diagnostic-de-performance-web-core-web-vitals-2.onrender.com\">\n    <meta property=\"og:title\" content=\"Outil de Diagnostic de Performance Web &#x27;Core Web Vitals&#x27;\">\n    <meta property=\"og:description\" content=\"Analysez la vitesse de chargement et l\">\n    <meta property=\"og:url\" content=\"https://outil-de-diagnostic-de-performance-web-core-web-vitals-2.onrender.com\">\n    <meta property=\"og:type\" content=\"website\">\n    <script type=\"application/ld+json\">{\"@context\": \"https://schema.org\", \"@type\": \"WebApplication\", \"name\": \"Outil de Diagnostic de Performance Web 'Core Web Vitals'\", \"description\": \"Analysez la vitesse de chargement et l\", \"url\": \"https://outil-de-diagnostic-de-performance-web-core-web-vitals-2.onrender.com\", \"applicationCategory\": \"UtilityApplication\", \"operatingSystem\": \"Web Browser\"}</script>\n</head>\n<body data-site-slug=\"outil-de-diagnostic-de-performance-web-core-web-vitals-2\" data-runtime-mode=\"seo_diagnostic\">\n    <header>\n        <h1>Diagnostic Core Web Vitals</h1>\n        <p>Analysez la vitesse de chargement et l'expérience utilisateur de votre site web. Obtenez des recommandations précises pour un SEO optimal et une navigation fluide.</p>\n    </header>\n\n    <div class=\"container\">\n        <section class=\"section\" id=\"tool-section\">\n            <h2>Évaluez la Performance de Votre Site Web</h2>\n            <p>Saisissez l'URL de votre site ci-dessous pour lancer une analyse approfondie de ses performances selon les critères essentiels de Google : LCP, FID, CLS.</p>\n            <form id=\"tool-form\">\n                <div class=\"form-group\">\n                    <label for=\"website-url\">URL de votre site (ex: https://monsite.fr)</label>\n                    <input type=\"url\" id=\"website-url\" placeholder=\"https://votresite.fr\" required>\n                </div>\n                <button type=\"submit\" id=\"tool-submit\" data-affiliate-slot=\"corewebvitals_analyze_btn\">Analyser les Core Web Vitals</button>\n            </form>\n\n            <div id=\"tool-result\">\n                Les résultats de votre diagnostic s'afficheront ici.\n            </div>\n        </section>\n\n        <section class=\"section\">\n            <h2>Comprendre les Core Web Vitals</h2>\n            <p>Les Core Web Vitals sont un ensemble de métriques de performance web essentielles pour l'expérience utilisateur, introduites par Google. Elles mesurent la vitesse de chargement (LCP), l'interactivité (FID) et la stabilité visuelle (CLS) de votre site.</p>\n            <ul>\n                <li class=\"result-item\"><strong>LCP (Largest Contentful Paint) :</strong> Mesure le temps nécessaire pour que le plus grand élément visuel (image ou bloc de texte) de la page soit rendu. Un bon LCP est inférieur à 2,5 secondes.</li>\n                <li class=\"result-item\"><strong>FID (First Input Delay) :</strong> Mesure le temps entre la première interaction de l'utilisateur (clic, tap) et le moment où le navigateur peut y répondre. Un bon FID est inférieur à 100 millisecondes.</li>\n                <li class=\"result-item\"><strong>CLS (Cumulative Layout Shift) :</strong> Mesure la somme de tous les changements de disposition inattendus sur la page. Un bon CLS est inférieur à 0.1.</li>\n            </ul>\n            <p>L'optimisation de ces métriques est cruciale non seulement pour offrir une meilleure expérience à vos visiteurs, mais aussi pour améliorer votre classement dans les résultats de recherche Google.</p>\n        </section>\n\n        <section class=\"section\">\n            <h2>Pourquoi l'optimisation est-elle cruciale ?</h2>\n            <p>Dans un monde numérique où la rapidité est reine, un site web lent est un frein majeur à votre succès. Une mauvaise performance impacte directement :</p>\n            <ul>\n                <li class=\"result-item\"><strong>Le Taux de Conversion :</strong> Les utilisateurs abandonnent rapidement les sites lents.</li>\n                <li class=\"result-item\"><strong>Le Référencement Naturel (SEO) :</strong> Google favorise les sites rapides et offrant une bonne UX.</li>\n                <li class=\"result-item\"><strong>L'Image de Marque :</strong> Un site performant renforce la crédibilité et le professionnalisme.</li>\n            </ul>\n            <p>Notre outil vous aide à identifier les points faibles et vous guide vers les améliorations nécessaires pour un site web plus rapide et plus efficace.</p>\n        </section>\n    </div>\n\n    <div class=\"seo-section\">\n        <h3>Améliorez votre SEO local et international</h3>\n        <p>Que vous cherchiez à optimiser votre site pour le marché français ou au-delà, la performance est universelle. Notre outil de diagnostic Core Web Vitals vous fournit une analyse technique essentielle. Trouvez les réponses à vos questions sur l'optimisation des performances web, l'amélioration du LCP, la réduction du FID, et la correction du CLS. Démarquez-vous de la concurrence en offrant une expérience utilisateur irréprochable.</p>\n        <ul>\n            <li>Audit Core Web Vitals gratuit</li>\n            <li>Optimisation vitesse site web</li>\n            <li>Améliorer LCP FID CLS</li>\n            <li>Diagnostic performance web</li>\n            <li>Outil analyse SEO technique</li>\n            <li>Vitesse de chargement site</li>\n            <li>Expérience utilisateur Google</li>\n            <li>Rapport Core Web Vitals</li>\n            <li>Référencement naturel performance</li>\n            <li>Conseils Core Web Vitals</li>\n        </ul>\n    </div>\n\n    <footer>\n        <p>&copy; 2023 Performance Web Essentials. Tous droits réservés.</p>\n    </footer>\n\n    <script>\n        document.getElementById('tool-form').addEventListener('submit', function(event) {\n            event.preventDefault();\n            const url = document.getElementById('website-url').value;\n            const resultDiv = document.getElementById('tool-result');\n            resultDiv.innerHTML = '<div class=\"result-title\">Analyse en cours...</div><p style=\"color: #a0a0a0;\">Simule l\\'analyse de ' + url + '</p>';\n\n            // Simulate Core Web Vitals calculation\n            setTimeout(() => {\n                const lcp = (Math.random() * 4 + 1).toFixed(2); // 1.00 - 5.00s\n                const fid = (Math.random() * 200).toFixed(0); // 0 - 200ms\n                const cls = (Math.random() * 0.2).toFixed(2); // 0.00 - 0.20\n\n                let lcpStatus = 'Bon';\n                if (lcp > 4) lcpStatus = 'Mauvais';\n                else if (lcp > 2.5) lcpStatus = 'À améliorer';\n\n                let fidStatus = 'Bon';\n                if (fid > 150) fidStatus = 'Mauvais';\n                else if (fid > 100) fidStatus = 'À améliorer';\n\n                let clsStatus = 'Bon';\n                if (cls > 0.15) clsStatus = 'Mauvais';\n                else if (cls > 0.1) clsStatus = 'À améliorer';\n\n                const suggestions = [\n                    'Optimisez les images : utilisez des formats modernes (WebP) et compressez-les.',\n                    'Réduisez les scripts JavaScript bloquants et le CSS inutile.',\n                    'Mettez en cache les ressources de votre site pour les visiteurs récurrents.',\n                    'Utilisez un CDN (Content Delivery Network) pour servir le contenu plus rapidement.',\n                    'Priorisez le chargement des contenus au-dessus de la ligne de flottaison.',\n                    'Assurez-vous que le serveur de votre hébergement est rapide et fiable.',\n                    'Éliminez les changements de mise en page inattendus en spécifiant les dimensions des éléments média.',\n                    'Minifiez vos fichiers HTML, CSS et JavaScript.'\n                ];\n\n                const randomSuggestions = [];\n                while (randomSuggestions.length < 3) {\n                    const suggestion = suggestions[Math.floor(Math.random() * suggestions.length)];\n                    if (!randomSuggestions.includes(suggestion)) {\n                        randomSuggestions.push(suggestion);\n                    }\n                }\n\n                resultDiv.innerHTML = `\n                    <div class=\"result-title\">Diagnostic de Performance pour ${url}</div>\n                    <div class=\"result-item\"><strong>LCP (Largest Contentful Paint):</strong> ${lcp} s - <span style=\"color: ${lcpStatus === 'Bon' ? '#4CAF50' : lcpStatus === 'À améliorer' ? '#FFC107' : '#F44336'};\">${lcpStatus}</span></div>\n                    <div class=\"result-item\"><strong>FID (First Input Delay):</strong> ${fid} ms - <span style=\"color: ${fidStatus === 'Bon' ? '#4CAF50' : fidStatus === 'À améliorer' ? '#FFC107' : '#F44336'};\">${fidStatus}</span></div>\n                    <div class=\"result-item\"><strong>CLS (Cumulative Layout Shift):</strong> ${cls} - <span style=\"color: ${clsStatus === 'Bon' ? '#4CAF50' : clsStatus === 'À améliorer' ? '#FFC107' : '#F44336'};\">${clsStatus}</span></div>\n                    <br>\n                    <div class=\"result-title\" style=\"font-size: 1.2em;\">Recommandations Clés :</div>\n                    ${randomSuggestions.map(s => `<div class=\"result-item\" style=\"color: #ccc;\">• ${s}</div>`).join('')}\n                    <br>\n                    <p style=\"font-size: 0.9em; color: #777;\">Ces données sont une simulation pour démonstration. Pour une analyse réelle, utilisez les outils officiels de Google (PageSpeed Insights, Lighthouse).</p>\n                `;\n            }, 2000);\n        });\n    </script>\n<div id=\"qa-smoke-result\" hidden></div>\n<script id=\"farmbuilder-affiliate-helper\">\n(function () {\n  window.__UTILITY_AFFILIATE_MAP = window.__UTILITY_AFFILIATE_MAP || {};\n  document.addEventListener(\"click\", function (event) {\n    const target = event.target.closest(\"[data-affiliate-slot]\");\n    if (!target) return;\n    const slot = target.getAttribute(\"data-affiliate-slot\");\n    const href = window.__UTILITY_AFFILIATE_MAP[slot];\n    if (!href) return;\n    if (target.tagName && target.tagName.toLowerCase() === \"a\") {\n      target.setAttribute(\"href\", href);\n      target.removeAttribute(\"rel\");\n      return;\n    }\n    event.preventDefault();\n    window.open(href, \"_blank\");\n  }, true);\n})();\n</script>\n<script id=\"farmbuilder-functional-qa\">\n(function () {\n  function marker() {\n    let node = document.getElementById(\"qa-smoke-result\");\n    if (node) return node;\n    node = document.createElement(\"div\");\n    node.id = \"qa-smoke-result\";\n    node.hidden = true;\n    document.body.appendChild(node);\n    return node;\n  }\n\n  let qaFinished = false;\n  let qaWatchdog = null;\n\n  function normalize(text) {\n    return String(text || \"\").replace(/\\s+/g, \" \").trim();\n  }\n\n  function findForm() {\n    return document.getElementById(\"tool-form\") || document.querySelector(\"form\");\n  }\n\n  function findResult() {\n    return (\n      document.getElementById(\"tool-result\") ||\n      document.querySelector(\"[data-result]\") ||\n      document.querySelector(\".tool-result, .result-card, .result, .results, .output, .preview, .diagnostic, .analysis\")\n    );\n  }\n\n  function primaryAction(form) {\n    if (!form) return null;\n    return (\n      document.getElementById(\"tool-submit\") ||\n      form.querySelector(\"#tool-submit\") ||\n      form.querySelector(\"[data-primary-action]\") ||\n      form.querySelector(\"button[type=submit]\") ||\n      form.querySelector(\"button\") ||\n      form.querySelector(\"input[type=submit]\")\n    );\n  }\n\n  function resultSignature(node) {\n    if (!node) return \"\";\n    const text = normalize(node.textContent);\n    const html = normalize(node.innerHTML).slice(0, 600);\n    return `${text}||${html}`;\n  }\n\n  function resultHeadline(node) {\n    if (!node) return \"\";\n    const heading = node.querySelector(\"h1, h2, h3, strong, b\");\n    return normalize(heading ? heading.textContent : \"\");\n  }\n\n  function sampleText(field) {\n    const key = `${field.id || \"\"} ${field.name || \"\"} ${field.placeholder || \"\"}`.toLowerCase();\n    if (/email/.test(key)) return \"bonjour@example.com\";\n    if (/url|site|website|lien/.test(key)) return \"https://example.com/offre-solaire\";\n    if (/phone|tel|mobile/.test(key)) return \"0612345678\";\n    if (/ville|city|localisation|location|region|departement|postal/.test(key)) return \"Paris\";\n    if (/orientation/.test(key)) return \"sud\";\n    if (/keyword|theme|topic|sujet|subject/.test(key)) return \"energie solaire domestique\";\n    if (/titre|title/.test(key)) return \"Simulateur solaire maison\";\n    if (/nom|name|project/.test(key)) return \"Projet Horizon\";\n    if (/description|notes|content|message/.test(key)) return \"Maison individuelle exposee sud avec toiture exploitable.\";\n    return field.placeholder || \"France\";\n  }\n\n  function sampleNumber(field) {\n    const key = `${field.id || \"\"} ${field.name || \"\"}`.toLowerCase();\n    if (/inclinaison|angle|slope/.test(key)) return \"30\";\n    if (/surface|size|m2|sqm/.test(key)) return \"28\";\n    if (/annee|year/.test(key)) return \"2024\";\n    if (/prix|price|budget|cost|amount|montant/.test(key)) return \"12000\";\n    const min = Number(field.min || \"\");\n    const max = Number(field.max || \"\");\n    if (Number.isFinite(min) && Number.isFinite(max) && max >= min) {\n      return String(Math.min(max, Math.max(min, min + Math.round((max - min) * 0.35))));\n    }\n    if (Number.isFinite(min)) return String(Math.max(min, 12));\n    if (Number.isFinite(max)) return String(Math.min(max, 12));\n    return field.value || \"12\";\n  }\n\n  function applySample(field) {\n    const tag = (field.tagName || \"\").toLowerCase();\n    const type = (field.type || \"\").toLowerCase();\n    if (field.disabled) return;\n    if (type === \"hidden\" || type === \"submit\" || type === \"button\" || type === \"reset\" || type === \"image\" || type === \"file\") {\n      return;\n    }\n    const currentValue = normalize(field.value);\n    if (tag === \"select\") {\n      if (currentValue) return;\n      const option = Array.from(field.options || []).find((item) => item.value && !item.disabled) || field.options[0];\n      if (option) field.value = option.value;\n      return;\n    }\n    if (type === \"checkbox\") {\n      if (field.checked) return;\n      field.checked = true;\n      return;\n    }\n    if (type === \"radio\") {\n      if (field.checked) return;\n      field.checked = true;\n      return;\n    }\n    if (type === \"date\") {\n      if (currentValue) return;\n      field.value = \"2026-03-01\";\n      return;\n    }\n    if (type === \"email\") {\n      if (currentValue) return;\n      field.value = \"bonjour@example.com\";\n      return;\n    }\n    if (type === \"url\") {\n      if (currentValue) return;\n      field.value = \"https://example.com/offre-solaire\";\n      return;\n    }\n    if (type === \"tel\") {\n      if (currentValue) return;\n      field.value = \"0612345678\";\n      return;\n    }\n    if (type === \"color\") {\n      if (currentValue) return;\n      field.value = \"#2f855a\";\n      return;\n    }\n    if (type === \"number\" || type === \"range\") {\n      if (currentValue) return;\n      field.value = sampleNumber(field);\n      return;\n    }\n    if (currentValue) return;\n    field.value = sampleText(field);\n  }\n\n  function stamp(status, detail, headline, primary) {\n    if (qaFinished) return;\n    qaFinished = true;\n    if (qaWatchdog) {\n      window.clearTimeout(qaWatchdog);\n      qaWatchdog = null;\n    }\n    const node = marker();\n    node.dataset.status = status;\n    node.dataset.mode = \"native-form\";\n    node.dataset.detail = detail || \"\";\n    node.dataset.headline = headline || \"\";\n    node.dataset.primary = primary || \"\";\n    node.dataset.viewport = window.innerWidth <= 640 ? \"mobile\" : \"desktop\";\n    window.setTimeout(function () {\n      try {\n        window.stop();\n      } catch (_error) {}\n    }, 0);\n  }\n\n  function installModalGuards() {\n    const noop = function () {};\n    const approve = function () { return true; };\n    const empty = function () { return \"\"; };\n    try { window.alert = noop; } catch (_error) {}\n    try { window.confirm = approve; } catch (_error) {}\n    try { window.prompt = empty; } catch (_error) {}\n  }\n\n  function triggerAction(form, action) {\n    try {\n      if (typeof form.requestSubmit === \"function\") {\n        form.requestSubmit(action || undefined);\n        return;\n      }\n    } catch (_error) {}\n    if (action && typeof action.click === \"function\") {\n      action.click();\n      return;\n    }\n    form.dispatchEvent(new Event(\"submit\", { bubbles: true, cancelable: true }));\n  }\n\n  function inspectResult(before, attemptsLeft) {\n    const result = findResult();\n    if (!result) {\n      stamp(\"fail\", \"La zone de resultat est introuvable.\", \"\");\n      return;\n    }\n    const after = resultSignature(result);\n    const text = normalize(result.textContent);\n    if (after && after !== before && text.length >= 24) {\n      const primary = result.querySelector(\"a[href], button[data-href], [data-primary-url]\") || document.querySelector(\"#tool-result a[href]\");\n      stamp(\"pass\", \"Le formulaire natif a mis a jour la zone de resultat.\", resultHeadline(result), primary ? (primary.getAttribute(\"href\") || primary.getAttribute(\"data-primary-url\") || \"\") : \"\");\n      return;\n    }\n    if (attemptsLeft > 0) {\n      window.setTimeout(function () {\n        inspectResult(before, attemptsLeft - 1);\n      }, 250);\n      return;\n    }\n    stamp(\"fail\", \"La zone de resultat n'a pas renvoye de contenu exploitable.\", resultHeadline(result));\n  }\n\n  function runSmoke() {\n    const params = new URLSearchParams(window.location.search);\n    if (params.get(\"__qa\") !== \"functional\") return;\n    qaWatchdog = window.setTimeout(function () {\n      stamp(\"fail\", \"QA smoke timed out before the page reported a usable result.\", \"\");\n    }, 7000);\n    const form = findForm();\n    if (!form) {\n      stamp(\"fail\", \"Le formulaire principal est introuvable.\", \"\");\n      return;\n    }\n    const result = findResult();\n    const before = resultSignature(result);\n    installModalGuards();\n    try {\n      form.querySelectorAll(\"input, select, textarea\").forEach(applySample);\n    } catch (error) {\n      stamp(\"fail\", error && error.message ? `QA smoke sample failed: ${error.message}` : \"QA smoke sample failed before submit.\", \"\");\n      return;\n    }\n    const action = primaryAction(form);\n    try {\n      triggerAction(form, action);\n    } catch (error) {\n      stamp(\"fail\", error && error.message ? `QA smoke submit failed: ${error.message}` : \"QA smoke submit failed.\", \"\");\n      return;\n    }\n    inspectResult(before, 10);\n  }\n\n  window.addEventListener(\"error\", function (event) {\n    const message = event && event.message ? event.message : \"JavaScript runtime error during QA smoke.\";\n    stamp(\"fail\", `QA smoke JS error: ${message}`, \"\");\n  }, { once: true });\n\n  window.addEventListener(\"unhandledrejection\", function (event) {\n    const reason = event && event.reason;\n    const detail = typeof reason === \"string\"\n      ? reason\n      : reason && reason.message\n        ? reason.message\n        : \"Unhandled promise rejection during QA smoke.\";\n    stamp(\"fail\", `QA smoke rejection: ${detail}`, \"\");\n  }, { once: true });\n\n  if (document.readyState === \"loading\") {\n    document.addEventListener(\"DOMContentLoaded\", function () {\n      window.setTimeout(runSmoke, 60);\n    }, { once: true });\n  } else {\n    window.setTimeout(runSmoke, 60);\n  }\n})();\n</script>\n</body>\n</html>",
+    "generation_mode": "direct_html"
+  }
+}
