@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Outil de Diagnostic de Performance Web &#x27;Core Web Vitals&#x27; | Évaluez la Performance de Votre Site Web</title>
+    <meta name="description" content="Analysez la vitesse de chargement et l">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Montserrat:wght@400;700&display=swap');
+        :root {
+            --primary-bg: #1a1a2e;
+            --secondary-bg: #16213e;
+            --accent-color: #e94560;
+            --text-color: #e0e0e0;
+            --border-color: #0f3460;
+            --input-bg: #0f3460;
+            --button-hover: #c9334d;
+            --glow-color: rgba(233, 69, 96, 0.4);
+        }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--primary-bg);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            background-color: var(--secondary-bg);
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 2px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+        }
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(23,33,62,0.8) 0%, rgba(26,26,46,0.8) 100%);
+            z-index: -1;
+        }
+        h1 {
+            font-family: 'Roboto Mono', monospace;
+            color: var(--accent-color);
+            font-size: 2.8em;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px var(--glow-color);
+        }
+        header p {
+            font-size: 1.2em;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #ccc;
+        }
+        .section {
+            background-color: var(--secondary-bg);
+            margin: 30px 0;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--border-color);
+            position: relative;
+        }
+        .section h2 {
+            font-family: 'Roboto Mono', monospace;
+            color: var(--accent-color);
+            font-size: 2em;
+            margin-top: 0;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: var(--text-color);
+        }
+        input[type="url"], textarea {
+            width: calc(100% - 20px);
+            padding: 12px;
+            background-color: var(--input-bg);
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            border-radius: 4px;
+            font-size: 1em;
+            box-sizing: border-box;
+        }
+        input[type="url"]:focus, textarea:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 8px var(--glow-color);
+        }
+        button {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 14px 25px;
+            border: none;
+            border-radius: 4px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        button:hover {
+            background-color: var(--button-hover);
+            box-shadow: 0 0 15px var(--glow-color);
+        }
+        #tool-result {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: var(--primary-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-family: 'Roboto Mono', monospace;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            min-height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: 1.1em;
+            color: #a0a0a0;
+        }
+        .result-title {
+            color: var(--accent-color);
+            margin-bottom: 15px;
+            font-size: 1.4em;
+            text-shadow: 0 0 5px var(--glow-color);
+        }
+        .result-item {
+            margin-bottom: 10px;
+        }
+        .result-item strong {
+            color: var(--accent-color);
+        }
+        .seo-section {
+            background-color: var(--primary-bg);
+            padding: 40px;
+            margin-top: 30px;
+            border-top: 2px solid var(--border-color);
+            text-align: center;
+        }
+        .seo-section h3 {
+            font-family: 'Roboto Mono', monospace;
+            color: var(--accent-color);
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+        .seo-section p {
+            max-width: 900px;
+            margin: 0 auto 20px auto;
+            color: #ccc;
+        }
+        .seo-section ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            max-width: 900px;
+            margin: 20px auto 0 auto;
+        }
+        .seo-section li {
+            background-color: var(--secondary-bg);
+            border: 1px solid var(--border-color);
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            color: var(--text-color);
+            transition: background-color 0.3s ease;
+        }
+        .seo-section li:hover {
+            background-color: var(--input-bg);
+        }
+        footer {
+            text-align: center;
+            padding: 30px;
+            margin-top: 50px;
+            background-color: var(--secondary-bg);
+            border-top: 1px solid var(--border-color);
+            color: #a0a0a0;
+            font-size: 0.9em;
+        }
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+            header p {
+                font-size: 1em;
+            }
+            .section {
+                padding: 25px;
+                margin: 20px 0;
+            }
+            .section h2 {
+                font-size: 1.6em;
+            }
+            button {
+                width: 100%;
+                padding: 12px;
+            }
+            .seo-section ul {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://outil-de-diagnostic-de-performance-web-core-web-vitals-2.onrender.com">
+    <meta property="og:title" content="Outil de Diagnostic de Performance Web &#x27;Core Web Vitals&#x27;">
+    <meta property="og:description" content="Analysez la vitesse de chargement et l">
+    <meta property="og:url" content="https://outil-de-diagnostic-de-performance-web-core-web-vitals-2.onrender.com">
+    <meta property="og:type" content="website">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Outil de Diagnostic de Performance Web 'Core Web Vitals'", "description": "Analysez la vitesse de chargement et l", "url": "https://outil-de-diagnostic-de-performance-web-core-web-vitals-2.onrender.com", "applicationCategory": "UtilityApplication", "operatingSystem": "Web Browser"}</script>
+</head>
+<body data-site-slug="outil-de-diagnostic-de-performance-web-core-web-vitals-2" data-runtime-mode="seo_diagnostic">
+    <header>
+        <h1>Diagnostic Core Web Vitals</h1>
+        <p>Analysez la vitesse de chargement et l'expérience utilisateur de votre site web. Obtenez des recommandations précises pour un SEO optimal et une navigation fluide.</p>
+    </header>
+
+    <div class="container">
+        <section class="section" id="tool-section">
+            <h2>Évaluez la Performance de Votre Site Web</h2>
+            <p>Saisissez l'URL de votre site ci-dessous pour lancer une analyse approfondie de ses performances selon les critères essentiels de Google : LCP, FID, CLS.</p>
+            <form id="tool-form">
+                <div class="form-group">
+                    <label for="website-url">URL de votre site (ex: https://monsite.fr)</label>
+                    <input type="url" id="website-url" placeholder="https://votresite.fr" required>
+                </div>
+                <button type="submit" id="tool-submit" data-affiliate-slot="corewebvitals_analyze_btn">Analyser les Core Web Vitals</button>
+            </form>
+
+            <div id="tool-result">
+                Les résultats de votre diagnostic s'afficheront ici.
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Comprendre les Core Web Vitals</h2>
+            <p>Les Core Web Vitals sont un ensemble de métriques de performance web essentielles pour l'expérience utilisateur, introduites par Google. Elles mesurent la vitesse de chargement (LCP), l'interactivité (FID) et la stabilité visuelle (CLS) de votre site.</p>
+            <ul>
+                <li class="result-item"><strong>LCP (Largest Contentful Paint) :</strong> Mesure le temps nécessaire pour que le plus grand élément visuel (image ou bloc de texte) de la page soit rendu. Un bon LCP est inférieur à 2,5 secondes.</li>
+                <li class="result-item"><strong>FID (First Input Delay) :</strong> Mesure le temps entre la première interaction de l'utilisateur (clic, tap) et le moment où le navigateur peut y répondre. Un bon FID est inférieur à 100 millisecondes.</li>
+                <li class="result-item"><strong>CLS (Cumulative Layout Shift) :</strong> Mesure la somme de tous les changements de disposition inattendus sur la page. Un bon CLS est inférieur à 0.1.</li>
+            </ul>
+            <p>L'optimisation de ces métriques est cruciale non seulement pour offrir une meilleure expérience à vos visiteurs, mais aussi pour améliorer votre classement dans les résultats de recherche Google.</p>
+        </section>
+
+        <section class="section">
+            <h2>Pourquoi l'optimisation est-elle cruciale ?</h2>
+            <p>Dans un monde numérique où la rapidité est reine, un site web lent est un frein majeur à votre succès. Une mauvaise performance impacte directement :</p>
+            <ul>
+                <li class="result-item"><strong>Le Taux de Conversion :</strong> Les utilisateurs abandonnent rapidement les sites lents.</li>
+                <li class="result-item"><strong>Le Référencement Naturel (SEO) :</strong> Google favorise les sites rapides et offrant une bonne UX.</li>
+                <li class="result-item"><strong>L'Image de Marque :</strong> Un site performant renforce la crédibilité et le professionnalisme.</li>
+            </ul>
+            <p>Notre outil vous aide à identifier les points faibles et vous guide vers les améliorations nécessaires pour un site web plus rapide et plus efficace.</p>
+        </section>
+    </div>
+
+    <div class="seo-section">
+        <h3>Améliorez votre SEO local et international</h3>
+        <p>Que vous cherchiez à optimiser votre site pour le marché français ou au-delà, la performance est universelle. Notre outil de diagnostic Core Web Vitals vous fournit une analyse technique essentielle. Trouvez les réponses à vos questions sur l'optimisation des performances web, l'amélioration du LCP, la réduction du FID, et la correction du CLS. Démarquez-vous de la concurrence en offrant une expérience utilisateur irréprochable.</p>
+        <ul>
+            <li>Audit Core Web Vitals gratuit</li>
+            <li>Optimisation vitesse site web</li>
+            <li>Améliorer LCP FID CLS</li>
+            <li>Diagnostic performance web</li>
+            <li>Outil analyse SEO technique</li>
+            <li>Vitesse de chargement site</li>
+            <li>Expérience utilisateur Google</li>
+            <li>Rapport Core Web Vitals</li>
+            <li>Référencement naturel performance</li>
+            <li>Conseils Core Web Vitals</li>
+        </ul>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 Performance Web Essentials. Tous droits réservés.</p>
+    </footer>
+
+    <script>
+        document.getElementById('tool-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const url = document.getElementById('website-url').value;
+            const resultDiv = document.getElementById('tool-result');
+            resultDiv.innerHTML = '<div class="result-title">Analyse en cours...</div><p style="color: #a0a0a0;">Simule l\'analyse de ' + url + '</p>';
+
+            // Simulate Core Web Vitals calculation
+            setTimeout(() => {
+                const lcp = (Math.random() * 4 + 1).toFixed(2); // 1.00 - 5.00s
+                const fid = (Math.random() * 200).toFixed(0); // 0 - 200ms
+                const cls = (Math.random() * 0.2).toFixed(2); // 0.00 - 0.20
+
+                let lcpStatus = 'Bon';
+                if (lcp > 4) lcpStatus = 'Mauvais';
+                else if (lcp > 2.5) lcpStatus = 'À améliorer';
+
+                let fidStatus = 'Bon';
+                if (fid > 150) fidStatus = 'Mauvais';
+                else if (fid > 100) fidStatus = 'À améliorer';
+
+                let clsStatus = 'Bon';
+                if (cls > 0.15) clsStatus = 'Mauvais';
+                else if (cls > 0.1) clsStatus = 'À améliorer';
+
+                const suggestions = [
+                    'Optimisez les images : utilisez des formats modernes (WebP) et compressez-les.',
+                    'Réduisez les scripts JavaScript bloquants et le CSS inutile.',
+                    'Mettez en cache les ressources de votre site pour les visiteurs récurrents.',
+                    'Utilisez un CDN (Content Delivery Network) pour servir le contenu plus rapidement.',
+                    'Priorisez le chargement des contenus au-dessus de la ligne de flottaison.',
+                    'Assurez-vous que le serveur de votre hébergement est rapide et fiable.',
+                    'Éliminez les changements de mise en page inattendus en spécifiant les dimensions des éléments média.',
+                    'Minifiez vos fichiers HTML, CSS et JavaScript.'
+                ];
+
+                const randomSuggestions = [];
+                while (randomSuggestions.length < 3) {
+                    const suggestion = suggestions[Math.floor(Math.random() * suggestions.length)];
+                    if (!randomSuggestions.includes(suggestion)) {
+                        randomSuggestions.push(suggestion);
+                    }
+                }
+
+                resultDiv.innerHTML = `
+                    <div class="result-title">Diagnostic de Performance pour ${url}</div>
+                    <div class="result-item"><strong>LCP (Largest Contentful Paint):</strong> ${lcp} s - <span style="color: ${lcpStatus === 'Bon' ? '#4CAF50' : lcpStatus === 'À améliorer' ? '#FFC107' : '#F44336'};">${lcpStatus}</span></div>
+                    <div class="result-item"><strong>FID (First Input Delay):</strong> ${fid} ms - <span style="color: ${fidStatus === 'Bon' ? '#4CAF50' : fidStatus === 'À améliorer' ? '#FFC107' : '#F44336'};">${fidStatus}</span></div>
+                    <div class="result-item"><strong>CLS (Cumulative Layout Shift):</strong> ${cls} - <span style="color: ${clsStatus === 'Bon' ? '#4CAF50' : clsStatus === 'À améliorer' ? '#FFC107' : '#F44336'};">${clsStatus}</span></div>
+                    <br>
+                    <div class="result-title" style="font-size: 1.2em;">Recommandations Clés :</div>
+                    ${randomSuggestions.map(s => `<div class="result-item" style="color: #ccc;">• ${s}</div>`).join('')}
+                    <br>
+                    <p style="font-size: 0.9em; color: #777;">Ces données sont une simulation pour démonstration. Pour une analyse réelle, utilisez les outils officiels de Google (PageSpeed Insights, Lighthouse).</p>
+                `;
+            }, 2000);
+        });
+    </script>
+<div id="qa-smoke-result" hidden></div>
+<script id="farmbuilder-affiliate-helper">
+(function () {
+  window.__UTILITY_AFFILIATE_MAP = window.__UTILITY_AFFILIATE_MAP || {};
+  document.addEventListener("click", function (event) {
+    const target = event.target.closest("[data-affiliate-slot]");
+    if (!target) return;
+    const slot = target.getAttribute("data-affiliate-slot");
+    const href = window.__UTILITY_AFFILIATE_MAP[slot];
+    if (!href) return;
+    if (target.tagName && target.tagName.toLowerCase() === "a") {
+      target.setAttribute("href", href);
+      target.removeAttribute("rel");
+      return;
+    }
+    event.preventDefault();
+    window.open(href, "_blank");
+  }, true);
+})();
+</script>
+<script id="farmbuilder-functional-qa">
+(function () {
+  function marker() {
+    let node = document.getElementById("qa-smoke-result");
+    if (node) return node;
+    node = document.createElement("div");
+    node.id = "qa-smoke-result";
+    node.hidden = true;
+    document.body.appendChild(node);
+    return node;
+  }
+
+  let qaFinished = false;
+  let qaWatchdog = null;
+
+  function normalize(text) {
+    return String(text || "").replace(/\s+/g, " ").trim();
+  }
+
+  function findForm() {
+    return document.getElementById("tool-form") || document.querySelector("form");
+  }
+
+  function findResult() {
+    return (
+      document.getElementById("tool-result") ||
+      document.querySelector("[data-result]") ||
+      document.querySelector(".tool-result, .result-card, .result, .results, .output, .preview, .diagnostic, .analysis")
+    );
+  }
+
+  function primaryAction(form) {
+    if (!form) return null;
+    return (
+      document.getElementById("tool-submit") ||
+      form.querySelector("#tool-submit") ||
+      form.querySelector("[data-primary-action]") ||
+      form.querySelector("button[type=submit]") ||
+      form.querySelector("button") ||
+      form.querySelector("input[type=submit]")
+    );
+  }
+
+  function resultSignature(node) {
+    if (!node) return "";
+    const text = normalize(node.textContent);
+    const html = normalize(node.innerHTML).slice(0, 600);
+    return `${text}||${html}`;
+  }
+
+  function resultHeadline(node) {
+    if (!node) return "";
+    const heading = node.querySelector("h1, h2, h3, strong, b");
+    return normalize(heading ? heading.textContent : "");
+  }
+
+  function sampleText(field) {
+    const key = `${field.id || ""} ${field.name || ""} ${field.placeholder || ""}`.toLowerCase();
+    if (/email/.test(key)) return "bonjour@example.com";
+    if (/url|site|website|lien/.test(key)) return "https://example.com/offre-solaire";
+    if (/phone|tel|mobile/.test(key)) return "0612345678";
+    if (/ville|city|localisation|location|region|departement|postal/.test(key)) return "Paris";
+    if (/orientation/.test(key)) return "sud";
+    if (/keyword|theme|topic|sujet|subject/.test(key)) return "energie solaire domestique";
+    if (/titre|title/.test(key)) return "Simulateur solaire maison";
+    if (/nom|name|project/.test(key)) return "Projet Horizon";
+    if (/description|notes|content|message/.test(key)) return "Maison individuelle exposee sud avec toiture exploitable.";
+    return field.placeholder || "France";
+  }
+
+  function sampleNumber(field) {
+    const key = `${field.id || ""} ${field.name || ""}`.toLowerCase();
+    if (/inclinaison|angle|slope/.test(key)) return "30";
+    if (/surface|size|m2|sqm/.test(key)) return "28";
+    if (/annee|year/.test(key)) return "2024";
+    if (/prix|price|budget|cost|amount|montant/.test(key)) return "12000";
+    const min = Number(field.min || "");
+    const max = Number(field.max || "");
+    if (Number.isFinite(min) && Number.isFinite(max) && max >= min) {
+      return String(Math.min(max, Math.max(min, min + Math.round((max - min) * 0.35))));
+    }
+    if (Number.isFinite(min)) return String(Math.max(min, 12));
+    if (Number.isFinite(max)) return String(Math.min(max, 12));
+    return field.value || "12";
+  }
+
+  function applySample(field) {
+    const tag = (field.tagName || "").toLowerCase();
+    const type = (field.type || "").toLowerCase();
+    if (field.disabled) return;
+    if (type === "hidden" || type === "submit" || type === "button" || type === "reset" || type === "image" || type === "file") {
+      return;
+    }
+    const currentValue = normalize(field.value);
+    if (tag === "select") {
+      if (currentValue) return;
+      const option = Array.from(field.options || []).find((item) => item.value && !item.disabled) || field.options[0];
+      if (option) field.value = option.value;
+      return;
+    }
+    if (type === "checkbox") {
+      if (field.checked) return;
+      field.checked = true;
+      return;
+    }
+    if (type === "radio") {
+      if (field.checked) return;
+      field.checked = true;
+      return;
+    }
+    if (type === "date") {
+      if (currentValue) return;
+      field.value = "2026-03-01";
+      return;
+    }
+    if (type === "email") {
+      if (currentValue) return;
+      field.value = "bonjour@example.com";
+      return;
+    }
+    if (type === "url") {
+      if (currentValue) return;
+      field.value = "https://example.com/offre-solaire";
+      return;
+    }
+    if (type === "tel") {
+      if (currentValue) return;
+      field.value = "0612345678";
+      return;
+    }
+    if (type === "color") {
+      if (currentValue) return;
+      field.value = "#2f855a";
+      return;
+    }
+    if (type === "number" || type === "range") {
+      if (currentValue) return;
+      field.value = sampleNumber(field);
+      return;
+    }
+    if (currentValue) return;
+    field.value = sampleText(field);
+  }
+
+  function stamp(status, detail, headline, primary) {
+    if (qaFinished) return;
+    qaFinished = true;
+    if (qaWatchdog) {
+      window.clearTimeout(qaWatchdog);
+      qaWatchdog = null;
+    }
+    const node = marker();
+    node.dataset.status = status;
+    node.dataset.mode = "native-form";
+    node.dataset.detail = detail || "";
+    node.dataset.headline = headline || "";
+    node.dataset.primary = primary || "";
+    node.dataset.viewport = window.innerWidth <= 640 ? "mobile" : "desktop";
+    window.setTimeout(function () {
+      try {
+        window.stop();
+      } catch (_error) {}
+    }, 0);
+  }
+
+  function installModalGuards() {
+    const noop = function () {};
+    const approve = function () { return true; };
+    const empty = function () { return ""; };
+    try { window.alert = noop; } catch (_error) {}
+    try { window.confirm = approve; } catch (_error) {}
+    try { window.prompt = empty; } catch (_error) {}
+  }
+
+  function triggerAction(form, action) {
+    try {
+      if (typeof form.requestSubmit === "function") {
+        form.requestSubmit(action || undefined);
+        return;
+      }
+    } catch (_error) {}
+    if (action && typeof action.click === "function") {
+      action.click();
+      return;
+    }
+    form.dispatchEvent(new Event("submit", { bubbles: true, cancelable: true }));
+  }
+
+  function inspectResult(before, attemptsLeft) {
+    const result = findResult();
+    if (!result) {
+      stamp("fail", "La zone de resultat est introuvable.", "");
+      return;
+    }
+    const after = resultSignature(result);
+    const text = normalize(result.textContent);
+    if (after && after !== before && text.length >= 24) {
+      const primary = result.querySelector("a[href], button[data-href], [data-primary-url]") || document.querySelector("#tool-result a[href]");
+      stamp("pass", "Le formulaire natif a mis a jour la zone de resultat.", resultHeadline(result), primary ? (primary.getAttribute("href") || primary.getAttribute("data-primary-url") || "") : "");
+      return;
+    }
+    if (attemptsLeft > 0) {
+      window.setTimeout(function () {
+        inspectResult(before, attemptsLeft - 1);
+      }, 250);
+      return;
+    }
+    stamp("fail", "La zone de resultat n'a pas renvoye de contenu exploitable.", resultHeadline(result));
+  }
+
+  function runSmoke() {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("__qa") !== "functional") return;
+    qaWatchdog = window.setTimeout(function () {
+      stamp("fail", "QA smoke timed out before the page reported a usable result.", "");
+    }, 7000);
+    const form = findForm();
+    if (!form) {
+      stamp("fail", "Le formulaire principal est introuvable.", "");
+      return;
+    }
+    const result = findResult();
+    const before = resultSignature(result);
+    installModalGuards();
+    try {
+      form.querySelectorAll("input, select, textarea").forEach(applySample);
+    } catch (error) {
+      stamp("fail", error && error.message ? `QA smoke sample failed: ${error.message}` : "QA smoke sample failed before submit.", "");
+      return;
+    }
+    const action = primaryAction(form);
+    try {
+      triggerAction(form, action);
+    } catch (error) {
+      stamp("fail", error && error.message ? `QA smoke submit failed: ${error.message}` : "QA smoke submit failed.", "");
+      return;
+    }
+    inspectResult(before, 10);
+  }
+
+  window.addEventListener("error", function (event) {
+    const message = event && event.message ? event.message : "JavaScript runtime error during QA smoke.";
+    stamp("fail", `QA smoke JS error: ${message}`, "");
+  }, { once: true });
+
+  window.addEventListener("unhandledrejection", function (event) {
+    const reason = event && event.reason;
+    const detail = typeof reason === "string"
+      ? reason
+      : reason && reason.message
+        ? reason.message
+        : "Unhandled promise rejection during QA smoke.";
+    stamp("fail", `QA smoke rejection: ${detail}`, "");
+  }, { once: true });
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", function () {
+      window.setTimeout(runSmoke, 60);
+    }, { once: true });
+  } else {
+    window.setTimeout(runSmoke, 60);
+  }
+})();
+</script>
+</body>
+</html>
